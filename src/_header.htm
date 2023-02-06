@@ -1,0 +1,66 @@
+<header class="header">
+  <div class="header__body">
+    <nav class='navmenu'>
+      <ul class='navmenu__body'>
+        <li>
+          <div class='submenu-wrapper'>
+            <button type='button' class='navmenu__item submenu__hover_button submenu-button'>
+              <span>Destinations</span>
+              <svg class='account-menu__show-svg' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path opacity="0.04" fill-rule="evenodd" clip-rule="evenodd" d="M24 12C24 5.37251 18.6274 -9.11175e-05 11.9999 -9.11175e-05C5.37248 -9.11175e-05 -0.00012207 5.37251 -0.00012207 12C-0.00012207 18.6274 5.37248 24 11.9999 24C18.6274 24 24 18.6274 24 12Z" fill="#52796F" />
+                <path d="M16.5 10.5L12 15L7.5 10.5" stroke="white" stroke-width="1.05" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div class='menu__hover submenu-menu submenu-menu_center'>
+              content
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class='submenu-wrapper'>
+            <button type='button' class='navmenu__item submenu__hover_button submenu-button'>
+              <span>Special offers</span>
+              <svg class='account-menu__show-svg' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path opacity="0.04" fill-rule="evenodd" clip-rule="evenodd" d="M24 12C24 5.37251 18.6274 -9.11175e-05 11.9999 -9.11175e-05C5.37248 -9.11175e-05 -0.00012207 5.37251 -0.00012207 12C-0.00012207 18.6274 5.37248 24 11.9999 24C18.6274 24 24 18.6274 24 12Z" fill="#52796F" />
+                <path d="M16.5 10.5L12 15L7.5 10.5" stroke="white" stroke-width="1.05" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div class='menu__hover submenu-menu submenu-menu_center'>
+              content
+            </div>
+          </div>
+        </li>
+        <li>
+          <a href='index.html' class='navmenu__item logo'>
+            <img src="img/logo.svg" alt="logo" width=152 height=72>
+          </a>
+        </li>
+        <li>
+          <a class='navmenu__item' target='_blank' rel='noopener' href='./index.html'>
+            Travel Services
+          </a>
+        </li>
+        <li>
+          <div class='submenu-wrapper'>
+            <button type='button' class='submenu__click_button submenu-button account-menu'>
+              <div class="account-menu__avatar contain-img">
+                <img src="img/userAvatar.png" alt='' width=32 height=32>
+              </div>
+              <p class='account-menu__name'>Ivan S.</p>
+              <svg class='account-menu__show-svg' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path opacity="0.04" fill-rule="evenodd" clip-rule="evenodd" d="M24 12C24 5.37251 18.6274 -9.11175e-05 11.9999 -9.11175e-05C5.37248 -9.11175e-05 -0.00012207 5.37251 -0.00012207 12C-0.00012207 18.6274 5.37248 24 11.9999 24C18.6274 24 24 18.6274 24 12Z" fill="#52796F" />
+                <path d="M16.5 10.5L12 15L7.5 10.5" stroke="black" stroke-width="1.05" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+
+            <div class='menu__click submenu-menu submenu-menu_center'>
+              content
+            </div>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+    <%- include('components/_burgerMenu.htm') %>
+  </div>
+</header>

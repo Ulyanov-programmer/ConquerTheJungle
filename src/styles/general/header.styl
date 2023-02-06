@@ -1,0 +1,82 @@
+@import '../_environment'
+
+.header {
+  position relative
+  width 100%
+  font-size 14px
+  border-bottom 2px solid rgba(246, 246, 246, .4)
+}
+
+.navmenu {
+  &__body {
+    flex-set row nowrap
+    align-items center
+    gap 15px
+    justify-content space-between
+    notLastChildMargin 0 15px 0 0
+    padding 10px 20px
+
+    @media (min-width 1600px) {
+      justify-content center
+    }
+
+    li {
+      .navmenu__item {
+        display inline-block
+        padding 8px
+        color inherit
+        transition all .2s ease 0s
+        text-shadow 0 0 3px #000
+      }
+
+      a.navmenu__item {
+        &:hover, &:focus {
+          text-decoration underline
+        }
+      }
+    }
+  }
+}
+
+.account-menu {
+  display inline-grid
+  grid-template-columns auto auto auto
+  align-items center
+  gap 8px
+  padding 4px
+  background #fff
+  color black
+  text-shadow none
+  border-radius 200px
+
+  &__avatar {
+  }
+
+  &__name {
+    white-space nowrap
+  }
+
+  &__show-svg {
+    transition all .2s ease
+  }
+
+  &.active {
+    .account-menu__show-svg {
+      transform rotate(180deg)
+    }
+  }
+}
+
+.logo {
+  z-index 10
+}
+
+.mobile-menu {
+  flex-set row nowrap
+  justify-content space-around
+  padding 10px 20px
+
+  @media (min-width 768px) {
+    display none
+  }
+}

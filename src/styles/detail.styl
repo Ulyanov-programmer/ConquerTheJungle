@@ -1,0 +1,170 @@
+@import '_environment'
+
+.main-page-wrapper {
+  grid-template 'aside-1 main-content' auto / 200px 1fr
+
+  @media (max-width 1439px) {
+    grid-template 'main-content' auto 'aside-1' auto / 1fr
+  }
+}
+
+.content {
+  grid-template-columns minmax(0, 1fr)
+  padding-right 200px
+
+  @media (max-width 1439px) {
+    padding 0 0
+  }
+}
+
+.header {
+  border none
+}
+
+.aside {
+  &__left {
+    border none
+  }
+
+  &__map {
+    pseudoInset fixed 20vh auto auto -5%
+    pointer-events none
+
+    @media (max-width 1439px) {
+      position static
+    }
+  }
+}
+
+.detail {
+  display block
+  text-align left
+  align-items start
+
+  &__uptitle {
+    text-shadow 0 0 5px #000
+  }
+
+  &__title {
+    position relative
+    display inline-block
+    font-size clamp(px(32), pxToVw(48), px(48))
+  }
+
+  &__text {
+    @media (min-width 1600px) {
+      width 600px
+    }
+  }
+
+  &__controls {
+    flex-set row nowrap
+    justify-content space-between
+    align-items center
+    width 100%
+    gap 50px
+
+    @media (max-width 1439px), (min-width 1600px) {
+      justify-content start
+    }
+
+    @media (max-width 768px) {
+      flex-set column nowrap
+    }
+  }
+
+  &__buttons {
+    flex-set row nowrap
+    justify-content center
+    gap 35px
+
+    @media (max-width 768px) {
+      flex-flow row wrap
+    }
+
+    @media (max-width 426px) {
+      flex-flow column-reverse nowrap
+    }
+  }
+
+  &__days-slider {
+    &:before {
+      position absolute
+      top 10px
+      left 0
+      display inline-block
+      width 100%
+      height 2px
+      background #fff
+      content ''
+    }
+  }
+
+  &__days-wrapper {
+    margin-right calc(-200px - 28px) !important
+
+    @media (max-width 1439px) {
+      margin-right -28px !important
+      margin-left -28px !important
+    }
+  }
+
+  &__day {
+    padding-right clamp(20px, 10vw, 140px)
+  }
+}
+
+.detail__days {
+  list-style none
+  padding 0
+  margin 0
+  counter-reset days-counter
+
+  li {
+    position relative
+    margin-top 10px
+    padding-top 30px
+    counter-increment days-counter
+
+    &:before {
+      display inline-block
+      text-shadow 0 0 5px #000
+      line-height 140%
+      opacity .8
+      margin-bottom 3px
+      content 'Day ' counter(days-counter)
+    }
+
+    &:after {
+      pseudoInset absolute 0 auto auto 0
+      transform translate3d(0, -9px, 0)
+      content url('../img/day-decor-ellipse.svg')
+    }
+
+    @media (max-width 1439px) {
+      padding-left 10px
+    }
+  }
+}
+
+.day {
+  notLastChildMargin 0 0 8px 0
+
+  &__title {
+    font-weight 700
+    font-size 24px
+  }
+
+  &__text {
+    font-weight 300
+    line-height 1.4
+    font-size rem(14)
+  }
+}
+
+#star-detail-1 {
+  position absolute
+  top 0
+  right 0
+  transform translate3d(100%, -50%, 0)
+}

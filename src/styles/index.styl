@@ -1,0 +1,248 @@
+@import '_environment'
+
+$contentPaddingWidth = 28px
+
+#background {
+  pseudoInset fixed -5vh -5vw
+  pointer-events none
+  z-index -1
+  width 110vw
+  height 110vh
+  min-width 1000px
+  object-fit cover
+}
+
+.main-page-wrapper {
+  display grid
+  grid-template 'aside-1 main-content aside-2' auto / 150px 1fr 150px
+  min-height 100vh
+
+  @media (max-width 1024px) {
+    grid-template 'main-content main-content' auto 'aside-1 aside-2' auto / 1fr 1fr
+  }
+}
+
+.aside {
+  flex-set column nowrap
+  align-items center
+
+  &__left {
+    grid-area aside-1
+
+    @media (min-width 1024px) {
+      border-right 2px solid rgba(246, 246, 246, .4)
+    }
+  }
+
+  &__right {
+    grid-area aside-2
+
+    @media (min-width 1024px) {
+      border-left 2px solid rgba(246, 246, 246, .4)
+    }
+  }
+
+  &__bottom-block {
+    flex-set column nowrap
+    justify-content center
+    align-items center
+    gap 35px
+    margin-top auto
+    border-top 2px solid rgba(246, 246, 246, .4)
+    height 200px
+    width 100%
+    padding 60px
+
+    @media (max-width 1024px) {
+      flex-set row wrap
+    }
+  }
+}
+
+.social-ref {
+  &:hover, &:focus {
+  }
+}
+
+.content {
+  grid-area main-content
+  display grid
+  grid-template-rows auto 1fr
+}
+
+.main {
+  flex-set column nowrap
+  justify-content center
+  align-items center
+  notLastChildMargin 0 0 25px 0
+  padding $contentPaddingWidth
+  text-align center
+
+  &__title {
+    font-family ValkyRegular
+    font-size clamp(px(40), pxToVw(96), px(96))
+    text-shadow 0 0 5px #000
+  }
+
+  &__text {
+    text-shadow 0 0 5px #000
+    font-weight 300
+    line-height 140%
+  }
+
+  &__discover-btn {
+    margin-top 35px !important
+  }
+
+  &__card-list {
+    flex-set row wrap
+    gap clamp(15px, 3vw, 40px)
+    justify-content center
+    width 100%
+  }
+}
+
+.cool-btn {
+  position relative
+  flex-set row nowrap
+  justify-content center
+  align-items center
+  notLastChildMargin 0 12px 0 0
+  padding 23px 65px
+  text-shadow 0 0 5px #000
+  color inherit
+  font-weight 700
+
+  &__text {
+  }
+
+  svg {
+    transition all .2s ease
+  }
+
+  &:after, &:before {
+    pseudoInset absolute 0 0
+    block-size 100%
+    transition all .2s ease
+    content ''
+  }
+
+  &:after {
+    bg-img-multi-type '../img/button-bg-1.svg', no-repeat center / 97%
+  }
+
+  &:before {
+    bg-img-multi-type '../img/button-bg-2.svg', no-repeat center / 97%
+  }
+
+  &:hover, &:focus {
+    &:after {
+      transform rotate(2deg)
+    }
+
+    &:before {
+      transform rotate(-2deg)
+    }
+  }
+
+  &:active {
+    svg {
+      transform translate3d(10%, 0, 0)
+    }
+  }
+
+  &__reverse {
+    svg {
+      transform rotate(180deg)
+    }
+
+    &:active {
+      svg {
+        transform rotate(180deg) translate3d(10%, 0, 0)
+      }
+    }
+  }
+}
+
+.card {
+  --color var(--text-c)
+  backdrop-filter blur(5px)
+  padding 15px
+  border 1px solid rgba(246, 246, 246, .245)
+  border-radius 9px
+  notLastChildMargin 0 0 10px 0
+  text-align left
+  color inherit
+  transition all .2s ease
+
+  &__country {
+    text-transform uppercase
+    font-family Aeonik
+    font-size 14px
+    letter-spacing 2px
+    opacity .6
+  }
+
+  &__discovery-point {
+    flex-set column nowrap
+    font-size clamp(px(18), pxToVw(28), px(28))
+
+    &:after {
+      margin-top 3px
+      width 57px
+      height 2px
+      background var(--color)
+      transition background .2s ease
+      content ''
+    }
+  }
+
+  &__price {
+    padding-top 5px
+    font-size clamp(px(18), pxToVw(28), px(28))
+  }
+
+  &:hover, &:focus, &.active {
+    --color black
+    background #fff
+    color black
+  }
+}
+
+.pocket {
+  position relative
+  display inline-block
+
+  &:after {
+    pseudoInset absolute 0 0
+    flex-set row nowrap
+    background #fff
+    justify-content center
+    align-items center
+    color black
+    border-radius 50%
+    block-size 18px
+    transform translate3d(30%, -30%, 0)
+    content attr(data-items-count)
+  }
+}
+
+.decor-star {
+  position fixed
+  pointer-events none
+}
+
+#star-1 {
+  top 7vh
+  left 4vw
+}
+
+#star-2 {
+  top 26vh
+  right 2vw
+}
+
+#star-3 {
+  bottom 5vh
+  left 12vw
+}
