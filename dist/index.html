@@ -60,11 +60,11 @@
 	<title>Conquer the Jungle</title>
 	
 	<!-- /-/ General stylesheets -->
-	<link rel="stylesheet" href="styles/general/nullStyle.css?_v=20230206091138">
-	<link rel="stylesheet" href="styles/general/fonts.css?_v=20230206091138">
-	<link rel="stylesheet" href="styles/general/header.css?_v=20230206091138">
-	<link rel="stylesheet" href="styles/general/footer.css?_v=20230206091138">
-	<link rel="stylesheet" href="styles/general/general.css?_v=20230206091138">
+	<link rel="stylesheet" href="styles/general/nullStyle.css">
+	<link rel="stylesheet" href="styles/general/fonts.css">
+	<link rel="stylesheet" href="styles/general/header.css">
+	<link rel="stylesheet" href="styles/general/footer.css">
+	<link rel="stylesheet" href="styles/general/general.css">
 
 <!-- /-/ General scripts -->
 
@@ -78,8 +78,8 @@
 
 
 <!-- BurgerMenu -->
-<script type="module" src="scripts/burgerMenu.js?_v=20230206091138"></script>
-<link rel="stylesheet" href="styles/modules/burgerMenu.css?_v=20230206091138">
+<script type="module" src="scripts/burgerMenu.js"></script>
+<link rel="stylesheet" href="styles/modules/burgerMenu.css">
 
 
 
@@ -90,8 +90,8 @@
 
 
 <!-- Submenu -->
-<script type="module" src="scripts/submenu.js?_v=20230206091138"></script>
-<link rel="stylesheet" href="styles/modules/submenu.css?_v=20230206091138">
+<script type="module" src="scripts/submenu.js"></script>
+<link rel="stylesheet" href="styles/modules/submenu.css">
 
 
 
@@ -106,7 +106,7 @@
 
 
 <!-- Parallax -->
-<script type="module" src="scripts/parallax.js?_v=20230206091138"></script>
+<script type="module" src="scripts/parallax.js"></script>
 
 
 
@@ -116,15 +116,18 @@
 
 
 <!-- /-/ Stylesheets and scripts for this page -->
-<link rel="stylesheet" href="styles/index.css?_v=20230206091138">
-<link rel="stylesheet" href="styles/modules/submenu.css?_v=20230206091138">
+<link rel="stylesheet" href="styles/index.css">
+<link rel="stylesheet" href="styles/modules/submenu.css">
 </head>
 
 <body>
   <img src="img/star-1.svg" class='decor-star' id='star-1'>
   <img src="img/star-2.svg" class='decor-star' id='star-2'>
   <img src="img/star-3.svg" class='decor-star' id='star-3'>
-  <picture><source srcset="img/bg.avif" type="image/avif"><source srcset="img/bg.webp" type="image/webp"><img src="img/bg.jpg" id='background'></picture>
+
+  <video id='background' autoplay loop muted>
+    <source src='./video/background.webm' type='video/webm'>
+  </video>
 
   <div class='main-page-wrapper'>
     <aside class='aside aside__left'>
@@ -185,7 +188,7 @@
           <div class='submenu-wrapper'>
             <button type='button' class='submenu__click_button submenu-button account-menu'>
               <div class="account-menu__avatar contain-img">
-                <picture><source srcset="img/userAvatar.avif" type="image/avif"><source srcset="img/userAvatar.webp" type="image/webp"><img src="img/userAvatar.png" alt='' width=32 height=32></picture>
+                <img src="img/userAvatar.png" alt='' width=32 height=32>
               </div>
               <p class='account-menu__name'>Ivan S.</p>
               <svg class='account-menu__show-svg' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -302,7 +305,7 @@
   </div>
 </body>
 
-<script type="module" src='./scripts/submenu.js?_v=20230206091138'></script>
+<script type="module" src='./scripts/submenu.js'></script>
 
 </html>
 <!-- Made in Russia, with ❤, by Ivan Ulyanov. -->

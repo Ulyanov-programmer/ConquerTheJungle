@@ -1,1 +1,65 @@
-import{returnScrollbarWidth as r,elementIsExistWithLog as n}from"./general.js";const e=class{constructor(t){if(!!n("BurgerMenu",t.burgerSelector,t.burgerMenuSelector,t.buttonsSelector)){if(e.burger=document.querySelector(t.burgerSelector),e.menu=document.querySelector(t.burgerMenuSelector),e.closingByClickOnElement=t.closingByClickOnElement,e.burgerActiveClass=t.burgerActiveClass?t.burgerActiveClass:"active",e.menuActiveClass=t.menuActiveClass?t.menuActiveClass:"active",e.burger.addEventListener("click",this.toggleNavmenu),e.closingByClickOnElement){e.buttons=document.querySelectorAll(t.buttonsSelector);for(let s of e.buttons)s.addEventListener("click",this.toggleNavmenu)}t.autoPadding&&(e.autoPaddingOptions=t.autoPadding,window.addEventListener("resize",this.changePaddingSizeBySizeOfHeader))}}toggleNavmenu(){let t=r();e.menu.classList.contains(e.menuActiveClass)==!1?e.showNavmenu(t):e.hideNavmenu()}static showNavmenu(t){e.menu.classList.add(e.menuActiveClass),e.menu.style.marginTop=`${e.autoPaddingOptions.getElementHeight()}px`,e.burger.classList.add(e.burgerActiveClass),document.body.style.overflow="hidden",document.body.style.paddingRight=`${t}px`}static hideNavmenu(){e.menu.classList.remove(e.menuActiveClass),e.menu.style.marginTop="0px",e.burger.classList.remove(e.burgerActiveClass),document.body.style.overflow="",document.body.style.paddingRight="0px"}changePaddingSizeBySizeOfHeader(){e.menu.classList.contains(e.menuActiveClass)&&(e.menu.style.marginTop=`${e.autoPaddingOptions.getElementHeight()}px`)}};let i=e;i.closingByClickOnElement=!0;export{i as default};export class autoPaddingOptions{constructor(t){n("autoPaddingOptions",t)&&(this.element=document.querySelector(t))}getElementHeight(){return this.element.clientHeight}}
+import { returnScrollbarWidth, elementIsExistWithLog } from "./general.js";
+const _BurgerMenu = class {
+  constructor(args) {
+    if (!elementIsExistWithLog("BurgerMenu", args.burgerSelector, args.burgerMenuSelector, args.buttonsSelector))
+      return;
+    _BurgerMenu.burger = document.querySelector(args.burgerSelector);
+    _BurgerMenu.menu = document.querySelector(args.burgerMenuSelector);
+    _BurgerMenu.closingByClickOnElement = args.closingByClickOnElement;
+    _BurgerMenu.burgerActiveClass = args.burgerActiveClass ? args.burgerActiveClass : "active";
+    _BurgerMenu.menuActiveClass = args.menuActiveClass ? args.menuActiveClass : "active";
+    _BurgerMenu.burger.addEventListener("click", this.toggleNavmenu);
+    if (_BurgerMenu.closingByClickOnElement) {
+      _BurgerMenu.buttons = document.querySelectorAll(args.buttonsSelector);
+      for (let button of _BurgerMenu.buttons) {
+        button.addEventListener("click", this.toggleNavmenu);
+      }
+    }
+    if (args.autoPadding) {
+      _BurgerMenu.autoPaddingOptions = args.autoPadding;
+      window.addEventListener("resize", this.changePaddingSizeBySizeOfHeader);
+    }
+  }
+  toggleNavmenu() {
+    let scrollbarWidth = returnScrollbarWidth();
+    if (_BurgerMenu.menu.classList.contains(_BurgerMenu.menuActiveClass) == false) {
+      _BurgerMenu.showNavmenu(scrollbarWidth);
+    } else {
+      _BurgerMenu.hideNavmenu();
+    }
+  }
+  static showNavmenu(scrollbarWidth) {
+    _BurgerMenu.menu.classList.add(_BurgerMenu.menuActiveClass);
+    _BurgerMenu.menu.style.marginTop = `${_BurgerMenu.autoPaddingOptions.getElementHeight()}px`;
+    _BurgerMenu.burger.classList.add(_BurgerMenu.burgerActiveClass);
+    document.body.style.overflow = "hidden";
+    document.body.style.paddingRight = `${scrollbarWidth}px`;
+  }
+  static hideNavmenu() {
+    _BurgerMenu.menu.classList.remove(_BurgerMenu.menuActiveClass);
+    _BurgerMenu.menu.style.marginTop = `0px`;
+    _BurgerMenu.burger.classList.remove(_BurgerMenu.burgerActiveClass);
+    document.body.style.overflow = "";
+    document.body.style.paddingRight = `0px`;
+  }
+  changePaddingSizeBySizeOfHeader() {
+    if (_BurgerMenu.menu.classList.contains(_BurgerMenu.menuActiveClass)) {
+      _BurgerMenu.menu.style.marginTop = `${_BurgerMenu.autoPaddingOptions.getElementHeight()}px`;
+    }
+  }
+};
+let BurgerMenu = _BurgerMenu;
+BurgerMenu.closingByClickOnElement = true;
+export {
+  BurgerMenu as default
+};
+export class autoPaddingOptions {
+  constructor(selectorOfElement) {
+    if (elementIsExistWithLog("autoPaddingOptions", selectorOfElement)) {
+      this.element = document.querySelector(selectorOfElement);
+    }
+  }
+  getElementHeight() {
+    return this.element.clientHeight;
+  }
+}
