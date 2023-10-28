@@ -1,7 +1,7 @@
 :root {
   --main-font-family: Ambit;
   --text-c: #fff;
-  --bg: #808080;
+  --bg: #000;
 }
 ._container {
   margin: auto;
@@ -34,8 +34,6 @@ body {
   height: max-content;
   color: #fff;
   color: var(--text-c);
-  background: #808080;
-  background: var(--bg);
   font: calc(0.003571428571429 * 100vw + 10.857142857142858px) Ambit;
   font: calc(0.003571428571429 * 100vw + 10.857142857142858px) var(--main-font-family);
   scrollbar-width: none;
